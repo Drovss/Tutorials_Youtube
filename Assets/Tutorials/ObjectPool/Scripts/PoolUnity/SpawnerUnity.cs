@@ -74,7 +74,7 @@ namespace Tutorials.ObjectPool.Scripts.PoolUnity
 
         private void SpawnElement()
         {
-            var coin = _pool.Get();
+            _pool.Get();
         }
 
         private Vector3 GeneratePosition()
