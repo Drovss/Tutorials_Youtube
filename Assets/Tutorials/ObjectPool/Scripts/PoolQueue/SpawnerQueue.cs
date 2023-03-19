@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Tutorials.ObjectPool.Scripts.PoolQueue
 {
-    public class Spawner: MonoBehaviour
+    public class SpawnerQueue: MonoBehaviour
     {
-        [SerializeField] private Coin _prefabCoin;
+        [SerializeField] private CoinQueue _prefabCoin;
         [SerializeField] private Transform _container;
         [SerializeField] private int _startSizePool;
         [SerializeField] private int _expansionStepPool;
@@ -15,13 +16,13 @@ namespace Tutorials.ObjectPool.Scripts.PoolQueue
         [SerializeField] private Transform _pointSpawn;
         [SerializeField] private float _horizontalScatter;
         
-        private MonoPoolQueue<Coin> _pool;
+        private MonoPoolQueue<CoinQueue> _pool;
 
         private float _time;
         
         private void Awake()
         {
-            _pool = new MonoPoolQueue<Coin>(_prefabCoin, _container, _startSizePool, _expansionStepPool);
+            _pool = new MonoPoolQueue<CoinQueue>(_prefabCoin, _container, _startSizePool, _expansionStepPool);
         }
 
         private void Update()

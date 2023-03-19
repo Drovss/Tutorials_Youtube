@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Pool;
 
-namespace Tutorials.ObjectPool.Scripts.PoolQueue
+namespace Tutorials.ObjectPool.Scripts.PoolUnity
 {
-    public class Coin: MonoBehaviour
+    public class CoinUnity:MonoBehaviour
     {
         [SerializeField] private float _mixPositionY;
         
-        public MonoPoolQueue<Coin> Pool { get; set; }
+        public IObjectPool<CoinUnity> Pool { get; set; }
 
         private void Update()
         {
