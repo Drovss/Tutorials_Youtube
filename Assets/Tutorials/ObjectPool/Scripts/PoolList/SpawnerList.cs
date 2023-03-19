@@ -27,17 +27,22 @@ namespace Tutorials.ObjectPool.Scripts.PoolList
         {
             if (_time < 0)
             {
-                var coin = _pool.Get();
-                coin.transform.position = GeneratePosition();
-                coin.gameObject.SetActive(true);
-                coin.Pool = _pool;
-                
+                SpawnElement();
+
                 _time = _timeToSpawn;
             }
             else
             {
                 _time -= Time.deltaTime;
             }
+        }
+
+        private void SpawnElement()
+        {
+            var coin = _pool.Get();
+            coin.transform.position = GeneratePosition();
+            coin.gameObject.SetActive(true);
+            coin.Pool = _pool;
         }
 
         private Vector3 GeneratePosition()

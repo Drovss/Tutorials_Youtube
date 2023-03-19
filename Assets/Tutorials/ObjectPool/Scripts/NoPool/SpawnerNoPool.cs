@@ -18,9 +18,7 @@ namespace Tutorials.ObjectPool.Scripts.NoPool
         {
             if (_time < 0)
             {
-                var coin = Instantiate(_prefabCoin, _container);
-                coin.transform.position = GeneratePosition();
-                coin.gameObject.SetActive(true);
+                SpawnElement();
 
                 _time = _timeToSpawn;
             }
@@ -28,6 +26,13 @@ namespace Tutorials.ObjectPool.Scripts.NoPool
             {
                 _time -= Time.deltaTime;
             }
+        }
+
+        private void SpawnElement()
+        {
+            var coin = Instantiate(_prefabCoin, _container);
+            coin.transform.position = GeneratePosition();
+            coin.gameObject.SetActive(true);
         }
 
         private Vector3 GeneratePosition()

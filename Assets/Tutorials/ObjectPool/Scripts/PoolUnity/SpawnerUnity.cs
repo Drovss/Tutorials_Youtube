@@ -1,5 +1,4 @@
-﻿using Tutorials.ObjectPool.Scripts.PoolQueue;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Tutorials.ObjectPool.Scripts.PoolUnity
@@ -16,9 +15,6 @@ namespace Tutorials.ObjectPool.Scripts.PoolUnity
         [SerializeField] private float _timeToSpawn;
         [SerializeField] private Transform _pointSpawn;
         [SerializeField] private float _horizontalScatter;
-        
-        [Space]
-        
         
         private IObjectPool<CoinUnity> _pool;
 
@@ -66,10 +62,7 @@ namespace Tutorials.ObjectPool.Scripts.PoolUnity
         {
             if (_time < 0)
             {
-                var coin = _pool.Get();
-                // coin.transform.position = GeneratePosition();
-                // coin.gameObject.SetActive(true);
-                // coin.Pool = _pool;
+                SpawnElement();
                 
                 _time = _timeToSpawn;
             }
@@ -77,6 +70,11 @@ namespace Tutorials.ObjectPool.Scripts.PoolUnity
             {
                 _time -= Time.deltaTime;
             }
+        }
+
+        private void SpawnElement()
+        {
+            var coin = _pool.Get();
         }
 
         private Vector3 GeneratePosition()
