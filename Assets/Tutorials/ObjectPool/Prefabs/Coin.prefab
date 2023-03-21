@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2264950633084027438}
   - component: {fileID: 1386001526617936166}
   - component: {fileID: 162209599001641635}
+  - component: {fileID: 645740188354326361}
   - component: {fileID: 7419357445097808075}
   - component: {fileID: 3140083430909745940}
-  - component: {fileID: 645740188354326361}
   - component: {fileID: 5262903069758308009}
   m_Layer: 0
   m_Name: Coin
@@ -110,6 +110,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &645740188354326361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2634949575964327901}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0032ce4353864ab5abf8872c1f88a82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixPositionY: -3
+  _isDestroy: 0
 --- !u!114 &7419357445097808075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +131,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634949575964327901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64fdfc1aca8141fb845d8e2e2f924d85, type: 3}
   m_Name: 
@@ -130,22 +144,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634949575964327901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a885325333475c9441f0a28526e7ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixPositionY: -3
---- !u!114 &645740188354326361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2634949575964327901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0032ce4353864ab5abf8872c1f88a82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mixPositionY: -3

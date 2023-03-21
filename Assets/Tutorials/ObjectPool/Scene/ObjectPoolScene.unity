@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &879328143
 Transform:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabCoin: {fileID: 3140083430909745940, guid: f1170fa2390d9d74ea0c671e1bfb9f03, type: 3}
   _container: {fileID: 1797726061}
-  _startSizePool: 2
+  _startSizePool: 5
   _autoExpand: 1
   _timeToSpawn: 1
   _pointSpawn: {fileID: 1797726061}
