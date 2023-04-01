@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1376687431062603861, guid: 1740e069106fe744c805f8f18f4cfe5e, type: 3}
-  _distance: 2
+  _distance: 4
   _angle: 360
   _count: 15
 --- !u!212 &1399110956 stripped
