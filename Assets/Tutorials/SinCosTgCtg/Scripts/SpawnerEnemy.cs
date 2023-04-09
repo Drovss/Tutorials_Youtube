@@ -4,7 +4,7 @@ namespace Tutorials.SinCosTgCtg.Scripts
 {
     public class SpawnerEnemy : MonoBehaviour
     {
-        [SerializeField] private Object _enemyPrefab;
+        [SerializeField] private GameObject _enemyPrefab;
         
         [SerializeField] private float _distance = 3;
         
