@@ -28,6 +28,7 @@ namespace Tutorials.Sqrt.Scripts
             var distance = Mathf.Sqrt(sqrtX + sqrtY);
 
             Debug.Log($"distance: {distance}");
+            Debug.Log($"distance: {Vector2.Distance(_transform1.position, _transform2.position)}");
         }
     }
 }
