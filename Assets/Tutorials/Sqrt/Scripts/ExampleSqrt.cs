@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Tutorials.Sqrt.Scripts
 {
-    public class Example: MonoBehaviour
+    public class ExampleSqrt: MonoBehaviour
     {
         private void Start()
         {
