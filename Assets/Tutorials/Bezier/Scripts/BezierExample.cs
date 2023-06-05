@@ -24,6 +24,11 @@ namespace Tutorials.Bezier.Scripts
         private Vector3 _p0123;
         private void Update()
         {
+            BezierPosition();
+        }
+
+        private void BezierPosition()
+        {
             _t = Mathf.Clamp01(_t);
 
             _p01 = Vector3.Lerp(_p0.position, _p1.position, _t);
@@ -37,12 +42,13 @@ namespace Tutorials.Bezier.Scripts
 
             _transform.position = _p0123;
         }
-        
+
         private void OnDrawGizmos() {
 
             const int segmentsNumber = 20;
             const float radius = 0.2f;
             
+            // відображення кривої Безьє
             Vector3 previousPoint = _p0.position;
 
             for (int i = 0; i < segmentsNumber + 1; i++) 
@@ -60,6 +66,7 @@ namespace Tutorials.Bezier.Scripts
                 previousPoint = point;
             }
 
+            // відображення точок і ліній між точками
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(_p0.position, _p1.position);
             Gizmos.DrawLine(_p1.position, _p2.position);
