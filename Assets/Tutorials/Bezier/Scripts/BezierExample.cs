@@ -52,7 +52,7 @@ namespace Tutorials.Bezier.Scripts
         private void OnDrawGizmos() 
         {
             // відображення кривої Безьє
-            const int segmentsNumber = 20;
+            const int segmentsNumber = 4;
 
             Vector3 previousPoint = _p0.position;
 
@@ -60,7 +60,7 @@ namespace Tutorials.Bezier.Scripts
             {
                 float parameter = (float)i / segmentsNumber;
                 
-                Vector3 point = BezierPosition(
+                Vector3 point = Bezier.BezierLerp(
                     _p0.position, 
                     _p1.position, 
                     _p2.position, 

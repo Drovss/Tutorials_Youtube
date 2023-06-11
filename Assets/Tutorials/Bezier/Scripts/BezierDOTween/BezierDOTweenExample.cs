@@ -17,7 +17,7 @@ namespace Tutorials.Bezier.Scripts
 
         private void Start()
         {
-            //GetSegmentPointCloud1();
+            GetSegmentPointCloud1();
             //GetSegmentPointCloud2();
         }
 
