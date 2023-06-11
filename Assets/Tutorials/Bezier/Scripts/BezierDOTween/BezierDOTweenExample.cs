@@ -12,17 +12,13 @@ namespace Tutorials.Bezier.Scripts
         [SerializeField] private Transform _p1;
         [SerializeField] private Transform _p2;
         [SerializeField] private Transform _p3;
-        
-        [SerializeField] private Transform _p4;
-        [SerializeField] private Transform _p5;
 
         [SerializeField] [Range(0,1)] private float _t;
 
         private void Start()
         {
-            //NewMethod();
-            //NewMethod2();
-            DoPathBezier();
+            //GetSegmentPointCloud1();
+            //GetSegmentPointCloud2();
         }
 
         private void Update()
@@ -35,7 +31,7 @@ namespace Tutorials.Bezier.Scripts
                 _t);
         }
 
-        private void NewMethod2()
+        private void GetSegmentPointCloud1()
         {
             var arr = DOCurve.CubicBezier.GetSegmentPointCloud(
                 _p0.position,
@@ -51,7 +47,7 @@ namespace Tutorials.Bezier.Scripts
             }
         }
 
-        private void NewMethod()
+        private void GetSegmentPointCloud2()
         {
             var list = new List<Vector3>();
 
@@ -70,34 +66,36 @@ namespace Tutorials.Bezier.Scripts
             }
         }
 
-        private void DoPathBezier()
-        {
-            var pathPoint = new[]
-            {
-                _p0.position,
-                _p1.position,
-                _p2.position,
-                _p3.position,
-                _p4.position,
-                _p5.position,
-            };
-
-            _transform.DOPath(
-                    pathPoint,
-                    5f,
-                    PathType.CubicBezier,
-                    PathMode.Sidescroller2D,
-                    10,
-                    Color.red)
-                .SetLoops(-1);
-        }
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(_p0.position, _p4.position);
-            Gizmos.DrawLine(_p0.position, _p2.position);
-            Gizmos.DrawLine(_p3.position, _p5.position);
+            
+            Gizmos.DrawLine(_p0.position, _p1.position);
+            Gizmos.DrawLine(_p1.position, _p3.position);
+            Gizmos.DrawLine(_p2.position, _p3.position);
+
+            DrawBezier();
+        }
+
+        private void DrawBezier()
+        {
+            Gizmos.color = Color.red;
+            
+            // відображення кривої Безьє
+            const int segmentsNumber = 20;
+
+            var points = DOCurve.CubicBezier.GetSegmentPointCloud(
+                _p0.position, 
+                _p1.position, 
+                _p2.position, 
+                _p3.position, 
+                segmentsNumber);
+            
+            for (int i = 0; i < points.Length - 1; i++)
+            {
+                var previousPoint = points[i];
+                Gizmos.DrawLine(previousPoint, points[i + 1]);
+            }
         }
     }
 }

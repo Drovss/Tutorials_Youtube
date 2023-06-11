@@ -22,40 +22,45 @@ namespace Tutorials.Bezier.Scripts
         private Vector3 _p123;
         
         private Vector3 _p0123;
+        
         private void Update()
         {
-            BezierPosition();
+            _transform.position = BezierPosition(
+                _p0.position, 
+                _p1.position, 
+                _p2.position, 
+                _p3.position, 
+                _t);
         }
 
-        private void BezierPosition()
+        private Vector3 BezierPosition(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
         {
-            _t = Mathf.Clamp01(_t);
+            t = Mathf.Clamp01(t);
 
-            _p01 = Vector3.Lerp(_p0.position, _p1.position, _t);
-            _p12 = Vector3.Lerp(_p1.position, _p2.position, _t);
-            _p23 = Vector3.Lerp(_p2.position, _p3.position, _t);
+            _p01 = Vector3.Lerp(p0, p1, t);
+            _p12 = Vector3.Lerp(p1, p2, t);
+            _p23 = Vector3.Lerp(p2, p3, t);
 
-            _p012 = Vector3.Lerp(_p01, _p12, _t);
-            _p123 = Vector3.Lerp(_p12, _p23, _t);
+            _p012 = Vector3.Lerp(_p01, _p12, t);
+            _p123 = Vector3.Lerp(_p12, _p23, t);
 
-            _p0123 = Vector3.Lerp(_p012, _p123, _t);
+            _p0123 = Vector3.Lerp(_p012, _p123, t);
 
-            _transform.position = _p0123;
+            return _p0123;
         }
 
-        private void OnDrawGizmos() {
-
-            const int segmentsNumber = 20;
-            const float radius = 0.2f;
-            
+        private void OnDrawGizmos() 
+        {
             // відображення кривої Безьє
+            const int segmentsNumber = 20;
+
             Vector3 previousPoint = _p0.position;
 
             for (int i = 0; i < segmentsNumber + 1; i++) 
             {
                 float parameter = (float)i / segmentsNumber;
                 
-                Vector3 point = Bezier.BezierLerp(
+                Vector3 point = BezierPosition(
                     _p0.position, 
                     _p1.position, 
                     _p2.position, 
@@ -67,6 +72,9 @@ namespace Tutorials.Bezier.Scripts
             }
 
             // відображення точок і ліній між точками
+            
+            const float radius = 0.2f;
+            
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(_p0.position, _p1.position);
             Gizmos.DrawLine(_p1.position, _p2.position);
